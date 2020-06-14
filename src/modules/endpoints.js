@@ -26,6 +26,11 @@ const endpoints = {
     getCategoryPlaylists: {
         url:`${spotify.webAPI}/browse/categories/{categoryId}/playlists`,
         headers
+    },
+
+    getPlaylistTracks: {
+        url:`${spotify.webAPI}/playlists/{playlistId}/tracks`,
+        headers
     }
 }
 

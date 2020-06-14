@@ -21,16 +21,17 @@ const AuthorizeRoute = () => {
         return output;
     }
 
-    // dispatch the params (access_token, token_type and expires_in to the state)
+    //returns the hash params
     const getHashParams = () => getParams(window.location.hash);
 
-    //returns the query when the access is denied
+    //returns the query string params
     const getQueryParams = () => getParams(window.location.search);
 
     if(getQueryParams().error){
         return <Redirect to="/" />
     }
     
+    // dispatch the params (access_token, token_type and expires_in to the state)
     dispatch(actionGetAuthInfo(getHashParams()));
     
     return (
@@ -39,7 +40,3 @@ const AuthorizeRoute = () => {
 }
 
 export default AuthorizeRoute;
-
-/* access_token: "BQCBXKBZ5MOzd1gObjWU3gRJ8MZLWDqEBjPUSIVFG7W1naxFRKC4GfRlcexDNuX2K671pneJv9L5rmg8DfRfctUP2slTmOOlMiRri5HucIpJzVf_Vog4qRJE9ykiSD--HhjBcekA4kR5OOSjC7U5NGV3nLsO4qnRJpOLMECQ0NbFJbseeg_MN5U"
-expires_in: "3600"
-token_type: "Bearer" */

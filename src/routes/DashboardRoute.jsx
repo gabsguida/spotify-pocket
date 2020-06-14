@@ -7,7 +7,8 @@ import Dashboard from '../containers/Dashboard/Dashboard';
 import Categories from '../containers/Categories/Categories';
 import PrivateRoute from '../containers/PrivateRoute/PrivateRoute';
 import WelcomeBox from '../components/WelcomeBox/WelcomeBox';
-import PlaylistsRoute from '.';
+import PlaylistsRoute from './PlaylistsRoute';
+import TracksRoute from './TracksRoute';
 
 import fetchUserProfile from '../modules/userRequest';
 import fetchCategories from '../modules/categoriesRequest';
@@ -20,12 +21,10 @@ const DashboardRoute = () => {
     const {url, path} = useRouteMatch();
 
     useEffect(() => {
-        console.log('effectuser')
         fetchUserProfile(authInfo);
     }, [authInfo])
 
     useEffect(() => {
-        console.log('effectcategories')
         fetchCategories(authInfo)
     }, [authInfo])
 
@@ -41,6 +40,10 @@ const DashboardRoute = () => {
                 
                 <PrivateRoute exact path={`${path}/:categoryId`}>
                     <PlaylistsRoute path={path} />
+                </PrivateRoute>
+                
+                <PrivateRoute exact path={`${path}/:categoryId/:playlistId`}>
+                    <TracksRoute path={path} />
                 </PrivateRoute>
 
                     

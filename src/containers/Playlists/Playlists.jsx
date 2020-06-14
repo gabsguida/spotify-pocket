@@ -21,6 +21,7 @@ const Playlists = ({ categoryPlaylists, categoryName, categoryId, isLoading, pat
                                     playlistInfo={categoryPlaylist} 
                                     path={path} 
                                     categoryId={categoryId} 
+                                    key={categoryPlaylist.id}
                                 />
                             )}
                         </div>

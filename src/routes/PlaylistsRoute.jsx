@@ -1,45 +1,35 @@
 import React, {useEffect} from 'react';
-import { useSelector } from 'react-redux';
-import {useParams, useDispatch} from 'react-router-dom';
-
-import endpoints from './endpoints';
-import {actionCategoryPlaylists} from '../actions/categoryPlaylistsActions';
-
-//import categoryPlaylistsRequest from '../modules/categoryPlaylistsRequest';
+import { useSelector, useDispatch } from 'react-redux';
+import {useParams} from 'react-router-dom';
 
 import Playlists from '../containers/Playlists/Playlists';
+import {actionCategoryPlaylists} from '../actions/categoryPlaylistsActions';
+import fetchCategoryPlaylists from '../modules/categoryPlaylistsRequest';
 
 const PlaylistsRoute = ({path}) => {
+
     const authInfo = useSelector(state=> state.authReducer);
     const {categories} = useSelector(state => state.categoriesReducer);
     const {playlists, loading} = useSelector(state => state.categoryPlaylistsReducer);
 
     const {categoryId} = useParams();
-    const dispatch = useDispatch();
 
-    const fetchCategoryPlaylists = async () => {
-        const {headers} = endpoints.getCategoryPlaylists;
-        const {tokenType, accessToken} = authInfo;
-        const response = await fetch(`https://api.spotify.com/v1/browse/categories/${categoryId}/playlists`, {
-            headers: {
-                ...headers,
-                'Authorization': `${tokenType} ${accessToken}`
-            }
-        })
-        const playlistsData = await response.json()
-        dispatch(actionCategoryPlaylists(playlistsData.playlists.items))
+    const getCategoryName = (categoryId) => {
+        const result = categories.filter(category => category.id === categoryId);
+        if (result.length) {
+            return result[0].name;
+        }
+        return null;
     }
 
-   /*  useEffect(() => {
-        //fetchCategoryPlaylists()
-        console.log(categoryId)
-    },[categoryId]) */
-    
-    
+     useEffect(() => {
+        fetchCategoryPlaylists(categoryId, authInfo);
+    },[categoryId, authInfo])
+
     return(
-        <Playlists 
+        <Playlists
             categoryPlaylists={playlists}
-            categoryName={categories.name}
+            categoryName={getCategoryName(categoryId)}
             categoryId={categoryId}
             isLoading={loading}
             path={path}
