@@ -6,7 +6,7 @@ import Loading from '../../components/Loading/Loading';
 
 import './Playlists.scss';
 
-const Playlists = ({ categoryPlaylists, categoryName, categoryId, isLoading, path }) => {
+const Playlists = ({ data, categoryName, categoryId, isLoading, path }) => {
     return(
         <div className="playlists" data-testid="playlists">
             <div className="container">
@@ -16,9 +16,12 @@ const Playlists = ({ categoryPlaylists, categoryName, categoryId, isLoading, pat
                     ? (<Loading text="Carregando..." />)
                     : (
                         <div className="playlists__content">
-                            {categoryPlaylists.map(categoryPlaylist => 
+                            {data.map(categoryPlaylist => 
                                 <PlaylistItem 
-                                    playlistInfo={categoryPlaylist} 
+                                    description={categoryPlaylist.description}
+                                    image={categoryPlaylist.images[0].url}
+                                    name={categoryPlaylist.name}
+                                    id={categoryPlaylist.id} 
                                     path={path} 
                                     categoryId={categoryId} 
                                     key={categoryPlaylist.id}

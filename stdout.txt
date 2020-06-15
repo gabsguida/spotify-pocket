@@ -1,1 +1,102 @@
-v12.16.1
+
+> react-spotify@0.1.0 submit C:\Users\Adriana\codenation\react-17
+> react-scripts test src/__tests__/validation.spec.js --reporters=default --reporters=jest-junit "--watchAll=false"
+
+  console.group node_modules/redux-logger/dist/redux-logger.js:1
+       action persist/PERSIST @ 18:46:58.416
+
+  console.log node_modules/redux-logger/dist/redux-logger.js:1
+       prev state {
+      authReducer: {
+        accessToken: '',
+        expiresIn: '',
+        tokenType: '',
+        validUntil: 0,
+        isLogged: false
+      },
+      userReducer: { email: '', userName: '', thumb: '' },
+      categoriesReducer: { categories: [], loading: true },
+      categoryPlaylistsReducer: { playlists: [], loading: true },
+      playlistTracksReducer: { tracks: [], loading: true },
+      playerReducer: { currentTrack: null, isPlaying: false }
+    }
+
+  console.log node_modules/redux-logger/dist/redux-logger.js:1
+       action     {
+      type: 'persist/PERSIST',
+      register: [Function: register],
+      rehydrate: [Function: rehydrate]
+    }
+
+  console.log node_modules/redux-logger/dist/redux-logger.js:1
+       next state {
+      authReducer: {
+        accessToken: '',
+        expiresIn: '',
+        tokenType: '',
+        validUntil: 0,
+        isLogged: false
+      },
+      userReducer: { email: '', userName: '', thumb: '' },
+      categoriesReducer: { categories: [], loading: true },
+      categoryPlaylistsReducer: { playlists: [], loading: true },
+      playlistTracksReducer: { tracks: [], loading: true },
+      playerReducer: { currentTrack: null, isPlaying: false },
+      _persist: { version: -1, rehydrated: false }
+    }
+
+  console.group node_modules/redux-logger/dist/redux-logger.js:1
+       action persist/REHYDRATE @ 18:46:59.052
+
+  console.log node_modules/redux-logger/dist/redux-logger.js:1
+       prev state {
+      authReducer: {
+        accessToken: '',
+        expiresIn: '',
+        tokenType: '',
+        validUntil: 0,
+        isLogged: false
+      },
+      userReducer: { email: '', userName: '', thumb: '' },
+      categoriesReducer: { categories: [], loading: true },
+      categoryPlaylistsReducer: { playlists: [], loading: true },
+      playlistTracksReducer: { tracks: [], loading: true },
+      playerReducer: { currentTrack: null, isPlaying: false },
+      _persist: { version: -1, rehydrated: false }
+    }
+
+  console.log node_modules/redux-logger/dist/redux-logger.js:1
+       action     {
+      type: 'persist/REHYDRATE',
+      payload: undefined,
+      err: undefined,
+      key: 'root'
+    }
+
+  console.log node_modules/redux-logger/dist/redux-logger.js:1
+       next state {
+      authReducer: {
+        accessToken: '',
+        expiresIn: '',
+        tokenType: '',
+        validUntil: 0,
+        isLogged: false
+      },
+      userReducer: { email: '', userName: '', thumb: '' },
+      categoriesReducer: { categories: [], loading: true },
+      categoryPlaylistsReducer: { playlists: [], loading: true },
+      playlistTracksReducer: { tracks: [], loading: true },
+      playerReducer: { currentTrack: null, isPlaying: false },
+      _persist: { version: -1, rehydrated: true }
+    }
+
+  console.error node_modules/prop-types/checkPropTypes.js:20
+    Warning: Failed prop type: The prop `to` is marked as required in `Link`, but its value is `undefined`.
+        in Link (at RouteHeader.jsx:12)
+        in RouterHeader (at validation.spec.js:55)
+        in Router (at validation.spec.js:54)
+
+  console.error node_modules/prop-types/checkPropTypes.js:20
+    Warning: Failed prop type: The prop `categories` is marked as required in `Categories`, but its value is `undefined`.
+        in Categories (at validation.spec.js:98)
+

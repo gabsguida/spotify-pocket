@@ -14,7 +14,6 @@ import backgroundImgDesktop from "../../assets/images/app-intro-2.jpg";
 import './Login.scss';
 
 const Login = () => {
-
     const [isMobile, setIsMobile] = useState(false);
 
     const resizeScreen = () => {
@@ -28,16 +27,16 @@ const Login = () => {
         }
     }, []);
 
-    const dispatch = useDispatch();
-    const cachedAuth = JSON.parse(localStorage.getItem('spotifyAuth'));
+    //const dispatch = useDispatch();
+    /* const cachedAuth = JSON.parse(localStorage.getItem('spotifyAuth'));
 
     const currentTime = (new Date().getTime() / 1000);
     if (cachedAuth && cachedAuth.validUntil > currentTime) {
-      dispatch(actionGetCachedAuthInfo(cachedAuth));
+        dispatch(actionGetCachedAuthInfo(cachedAuth));
       return (
           <Redirect to="/dashboard" />
       );
-    }
+    } */
 
     const authUrl = endpoints.getAuthorization.url;
 
@@ -63,4 +62,4 @@ const Login = () => {
 }
 
 
-export default Login;
+export default Login ;

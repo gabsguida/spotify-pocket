@@ -1,20 +1,29 @@
-import {createStore, combineReducers} from 'redux';
-import authReducer from '../reducers/authReducer';
-import userReducer from '../reducers/userReducer';
-import categoriesReducer from '../reducers/categoriesReducer';
-import categoryPlaylistsReducer from '../reducers/categoryPlaylistsReducer';
-import playlistTracksReducer from '../reducers/playlistTracksReducer';
-import playerReducer from '../reducers/playerReducer';
+import {createStore, applyMiddleware} from 'redux';
+//import AsyncStorage from '@react-native-community/async-storage';
+import storage from 'redux-persist/lib/storage'
+import { createLogger } from 'redux-logger';
+import { persistStore, persistReducer } from 'redux-persist';
+import {rootReducer} from '../reducers';
 
-const reducers = combineReducers({
-    authReducer,
-    userReducer,
-    categoriesReducer,
-    categoryPlaylistsReducer,
-    playlistTracksReducer,
-    playerReducer
-})
+const persistConfig = {
+    key: 'root',
+    storage,
+    whitelist: ['authReducer', 'userReducer'],
+    blacklist: ['categoriesReducer', 'categoryPlaylistsReducer', 'playerReducer', 'playlistTracksReducer']
+}
 
-const store = createStore(reducers)
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 
-export default store;
+const store = createStore(
+    persistedReducer,
+    applyMiddleware(
+        createLogger()
+    )
+);
+
+let persistor = persistStore(store);
+
+export {
+    store,
+    persistor
+}

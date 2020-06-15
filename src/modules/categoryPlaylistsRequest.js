@@ -1,4 +1,4 @@
-import store from '../store';
+import {store} from '../store';
 import endpoints from './endpoints';
 import {actionLoadCategoryPlaylists} from '../actions/categoryPlaylistsActions';
 import {actionCategoryPlaylists} from '../actions/categoryPlaylistsActions';

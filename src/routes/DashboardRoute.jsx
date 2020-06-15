@@ -35,7 +35,7 @@ const DashboardRoute = () => {
             <Switch>
                 <PrivateRoute exact path={path}>
                     <WelcomeBox name={userInfo.userName} />
-                    <Categories categories={categories} isLoading={loading} url={url} />
+                    <Categories data={categories} isLoading={loading} url={url} />
                 </PrivateRoute>
                 
                 <PrivateRoute exact path={`${path}/:categoryId`}>

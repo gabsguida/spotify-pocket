@@ -1,4 +1,4 @@
-import store from '../store';
+import {store} from '../store';
 import endpoints from '../modules/endpoints';
 import {actionGetUserProfileComplete} from '../actions/userActions';
 

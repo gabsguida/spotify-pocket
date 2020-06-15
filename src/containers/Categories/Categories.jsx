@@ -7,7 +7,7 @@ import CategoryItem from './CategoryItem';
 
 import './Categories.scss';
 
-const Categories = ({ categories, isLoading, url }) => {
+const Categories = ({ data, isLoading, url }) => {
     return(
         <div className="categories" data-testid="categories">
             <div className="container">
@@ -17,7 +17,7 @@ const Categories = ({ categories, isLoading, url }) => {
                 ? (<Loading text="Carregando..."/>)
                 :
                     (<div className="categories__content">
-                        {categories.map((category) => 
+                        {data.map((category) => 
                             <CategoryItem 
                                 id={category.id} 
                                 name={category.name} 

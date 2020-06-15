@@ -2,6 +2,8 @@ import React from 'react';
 import {useDispatch} from 'react-redux';
 import {Redirect} from 'react-router-dom';
 
+import Authorize from '../containers/Authorize/Authorize';
+
 import {actionGetAuthInfo} from '../actions/authActions';
 
 
@@ -35,7 +37,11 @@ const AuthorizeRoute = () => {
     dispatch(actionGetAuthInfo(getHashParams()));
     
     return (
-        <Redirect to="/dashboard" />
+        <React.Fragment>
+            <Authorize />
+            <Redirect to="/dashboard" />
+        </React.Fragment>
+        
     );
 }
 

@@ -1,9 +1,9 @@
 import React, {useEffect} from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import {useParams} from 'react-router-dom';
 
 import Playlists from '../containers/Playlists/Playlists';
-import {actionCategoryPlaylists} from '../actions/categoryPlaylistsActions';
+//import {actionCategoryPlaylists} from '../actions/categoryPlaylistsActions';
 import fetchCategoryPlaylists from '../modules/categoryPlaylistsRequest';
 
 const PlaylistsRoute = ({path}) => {
@@ -28,7 +28,7 @@ const PlaylistsRoute = ({path}) => {
 
     return(
         <Playlists
-            categoryPlaylists={playlists}
+            data={playlists}
             categoryName={getCategoryName(categoryId)}
             categoryId={categoryId}
             isLoading={loading}
