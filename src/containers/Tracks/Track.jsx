@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BsPlayFill, BsVolumeUpFill } from 'react-icons/bs';
 import Ink from 'react-ink';

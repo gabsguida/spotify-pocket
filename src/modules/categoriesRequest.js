@@ -4,11 +4,11 @@ import {actionGetCategories} from '../actions/categoriesActions';
 
 export default async function fetchCategories(authInfo) {
     const {url, headers} = endpoints.getCategories;
-    const {tokenType, accessToken} = authInfo;
+    const {token_type, access_token} = authInfo;
     let response = await fetch(url, {
         headers: {
             ...headers,
-            'Authorization': `${tokenType} ${accessToken}`
+            'Authorization': `${token_type} ${access_token}`
         }
     })
     response = await response.json()

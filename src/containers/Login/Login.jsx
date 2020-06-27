@@ -1,10 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import {useDispatch} from 'react-redux';
 import Ink from 'react-ink';
 import { debounce } from 'lodash';
 import endpoints from '../../modules/endpoints';
-import {actionGetCachedAuthInfo} from '../../actions/authActions';
-import {Redirect} from 'react-router-dom';
+
 
 import Logo from '../../components/Logo/Logo';
 
@@ -27,17 +25,7 @@ const Login = () => {
         }
     }, []);
 
-    //const dispatch = useDispatch();
-    /* const cachedAuth = JSON.parse(localStorage.getItem('spotifyAuth'));
-
-    const currentTime = (new Date().getTime() / 1000);
-    if (cachedAuth && cachedAuth.validUntil > currentTime) {
-        dispatch(actionGetCachedAuthInfo(cachedAuth));
-      return (
-          <Redirect to="/dashboard" />
-      );
-    } */
-
+    
     const authUrl = endpoints.getAuthorization.url;
 
     return (

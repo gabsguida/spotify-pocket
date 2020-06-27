@@ -4,11 +4,12 @@ import {actionGetUserProfileComplete} from '../actions/userActions';
 
 export default function fetchUserProfile(authInfo) {
     const {url, headers} = endpoints.getUserProfile;
-    const {tokenType, accessToken} = authInfo;
+    const {token_type, access_token} = authInfo;
+
     fetch(url, {
         headers: {
             ...headers,
-            'Authorization': `${tokenType} ${accessToken}`
+            'Authorization': `${token_type} ${access_token}`
         }
     })
     .then(res => res.json())

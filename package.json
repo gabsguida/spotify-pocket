@@ -1,7 +1,7 @@
 {
   "name": "react-spotify",
   "version": "0.1.0",
-  "author": "Vinícius Ribeiro Fernandes <https://github.com/viniciusvinna>",
+  "author": "Gabriela Guida <https://github.com/gabsguida>",
   "private": true,
   "dependencies": {
     "@react-native-community/async-storage": "^1.11.0",
